@@ -1,0 +1,83 @@
+<div
+  fxLayout="row"
+  fxLayoutAlign="center start">
+  <mat-card fxFlex="50">
+    <mat-card-title>
+      <div
+        fxLayout="row"
+        fxLayoutAlign="start center"
+        fxLayoutGap="12px">
+        <button
+          mat-icon-button
+          [routerLink]="['../']">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <span>Appliance Details</span>
+      </div>
+    </mat-card-title>
+    <mat-card-content
+      fxLayout="row"
+      fxLayoutAlign="center start">
+      <div fxLayout="column">
+      <section>
+        <span class="info-label">Name&colon;</span>
+        <span> {{ appliance?.name }}</span>
+      </section>
+      <section>
+        <span class="info-label">
+          Consumption&colon;
+        </span>
+        <span>
+          {{ appliance?.consumptionWh }} Wh
+        </span>
+      </section>
+      <section>
+        <span class="info-label">
+          Hours Running Daily&colon;
+        </span>
+        <span>
+          {{ appliance?.runningHoursPerDay }} H
+        </span>
+      </section>
+      <section>
+        <span class="info-label">
+          Number of devices&colon;
+        </span>
+        <span>
+          {{ appliance?.count }}
+        </span>
+      </section>
+      <section>
+        <div
+          fxLayout="row"
+          fxLayoutAlign="start center"
+          fxLayoutGap="8px">
+          <div class="info-label">Enabled&colon;</div>
+          <div
+            fxLayout="column"
+            fxLayoutAlign="center end"
+            *ngIf="appliance?.active">
+            <mat-icon color="primary">toggle_on</mat-icon>
+          </div>
+          <div
+            fxLayout="column"
+            fxLayoutAlign="center end"
+            *ngIf="!appliance?.active">
+            <mat-icon color="primary">toggle_off</mat-icon>
+          </div>
+        </div>
+
+      </section>
+      <section>
+        <span class="info-label">
+          Category&colon;
+        </span>
+        <span>
+          {{ appliance?.applianceCategory?.name }}
+        </span>
+      </section>
+    </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>

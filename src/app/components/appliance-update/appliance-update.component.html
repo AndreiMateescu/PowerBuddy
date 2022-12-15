@@ -1,0 +1,52 @@
+<div
+  fxLayout="row"
+  fxLayoutAlign="center start">
+  <form
+    [formGroup]="form"
+    autocomplete="off"
+    (ngSubmit)="onSubmit()"
+    fxFlex="50">
+    <mat-card>
+      <mat-card-title>
+        <div
+          fxLayout="row"
+          fxLayoutAlign="start center"
+          fxLayoutGap="12px">
+          <button
+            mat-icon-button
+            [routerLink]="['../../']">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+          <span>Update Appliance</span>
+        </div>
+      </mat-card-title>
+      <mat-card-content>
+        <input
+          [formControl]="id"
+          [hidden]="true">
+        <app-appliance-shared
+          [form]="form"
+          [applianceCategories]="(applianceCategories$ | async) || []"></app-appliance-shared>
+      </mat-card-content>
+      <mat-card-actions>
+        <div
+          fxLayoutGap="12px"
+          fxLayoutAlign="center start">
+          <button
+            mat-flat-button
+            color="warn"
+            (click)="onCancel()">
+            Cancel
+          </button>
+          <button
+            mat-flat-button
+            color="primary"
+            [disabled]="form.invalid || form.pristine"
+            type="submit">
+            Update
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
